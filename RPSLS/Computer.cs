@@ -8,7 +8,7 @@ namespace RPSLS
 {
     class Computer : Player
     {
-        //member variables
+        //member variables (HAS A)
 
         //constructor
         public Computer()
@@ -18,6 +18,9 @@ namespace RPSLS
 
 
         //member methods
-        
+        public override void ChooseGesture()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

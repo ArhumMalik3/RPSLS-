@@ -8,8 +8,8 @@ namespace RPSLS
 {
     class Human : Player
     {
-        //member variables
-        
+        //member variables (HAS A)
+
 
         //constructor
         public Human()
@@ -19,7 +19,19 @@ namespace RPSLS
 
 
         //member methods
-        
+        public override void ChooseGesture()
+        {
+            Console.WriteLine("These are all of the gestures to choose from: ");
+            Console.WriteLine(" ");
+            foreach(string gesture in gestures)
+            {
+                Console.WriteLine(gesture);
+            }
+            Console.WriteLine(" ");
+            Console.WriteLine("Please select your gesture for this round: ");
+            string response = Console.ReadLine();
+        }
+
 
     }
 }

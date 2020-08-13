@@ -8,19 +8,21 @@ namespace RPSLS
 {
     public abstract class Player
     {
-        //member variables
+        //member variables (HAS A)
         public double score;
+        public string gestureChoice;
         public List<string> gestures;
 
 
         //constructor 
         public Player()
         {
-            gestures = new List<string>() { "rock", "paper", "scissors", "lizard", "spock" };
+            score = 0;
+            gestures = new List<string>() { "Rock", "Paper", "Scissors", "Lizard", "Spock" };
         }
         //member methods
-        
-        
+
+        public abstract void ChooseGesture();
 
         
     }

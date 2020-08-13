@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -8,7 +9,7 @@ namespace RPSLS
 {
     class GamePlay
     {
-        //member variables
+        //member variables (HAS A)
         public Player player1;
         public Player player2;
 
@@ -29,10 +30,12 @@ namespace RPSLS
             //display rules of the game
             DisplayRulesOfGame();
             //have player choose game mode
+            SelectGameMode();
 
             //gameplay: (while loop)
             //display gesture options to player 1
             //player 1 chooses gesture
+            player1.ChooseGesture();
             //display gesture to player 2 if its a human
             //player 2 chooses gesture
             //compare gestures
@@ -68,14 +71,25 @@ namespace RPSLS
         }
         public void SelectGameMode()
         {
-            Console.WriteLine();
+            Console.WriteLine("Would you like to play Single Player Mode or Multiplayer Mode?\n" +
+                "Type 1 for single player\n" +
+                "Type 2 for multi player\n");
+            string response = Console.ReadLine();
+            if(response == "1")
+            {
+                player2 = new Computer();
+            }
+            else
+            {
+                player2 = new Human();
+            }
 
         }
 
-        public void ChooseGesture()
-        {
+        //public void ChooseGesture()
+        //{
 
-        }
+        //}
 
         
 
