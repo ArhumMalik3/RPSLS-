@@ -6,7 +6,29 @@ using System.Threading.Tasks;
 
 namespace RPSLS
 {
-    class GameMode
+    public class GameMode
     {
+        //member variables
+        public double playerOneScore;
+        public double playerTwoScore;
+        Gestures gestures = new Gestures();
+
+
+        //constructor 
+        public GameMode()
+        {
+
+        }
+        //member methods
+        public void DisplayGestureOptions()
+        {
+            foreach(string option in gestures.gestureOptions)
+            {
+                Console.WriteLine(option);
+            }
+        }
+        
+
+        
     }
 }

@@ -6,7 +6,18 @@ using System.Threading.Tasks;
 
 namespace RPSLS
 {
-    class MultiPlayer
+    class MultiPlayer : GameMode
     {
+        //member variables
+
+        //constructor
+        public MultiPlayer()
+        {
+
+        }
+
+
+        //member methods
+        
     }
 }

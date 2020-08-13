@@ -6,7 +6,20 @@ using System.Threading.Tasks;
 
 namespace RPSLS
 {
-    class SinglePlayer
+    class SinglePlayer : GameMode
     {
+        //member variables
+        Random rand;
+
+        //constructor
+        public SinglePlayer()
+        {
+
+        }
+
+
+        //member methods
+        
+
     }
 }
