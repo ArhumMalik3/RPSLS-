@@ -6,15 +6,15 @@ using System.Threading.Tasks;
 
 namespace RPSLS
 {
-    class SinglePlayer : GameMode
+    class Human : Player
     {
         //member variables
-        Random rand;
+        
 
         //constructor
-        public SinglePlayer()
+        public Human()
         {
-
+            
         }
 
 
