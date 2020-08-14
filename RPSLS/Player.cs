@@ -18,7 +18,7 @@ namespace RPSLS
         public Player()
         {
             score = 0;
-            gestures = new List<string>() { "Rock", "Paper", "Scissors", "Lizard", "Spock" };
+            gestures = new List<string>() { "rock", "paper", "scissors", "lizard", "spock" };
         }
         //member methods
 

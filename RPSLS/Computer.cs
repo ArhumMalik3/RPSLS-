@@ -9,10 +9,12 @@ namespace RPSLS
     class Computer : Player
     {
         //member variables (HAS A)
+        Random rand;
 
         //constructor
         public Computer()
         {
+            rand = new Random();
 
         }
 
@@ -20,7 +22,9 @@ namespace RPSLS
         //member methods
         public override void ChooseGesture()
         {
-            throw new NotImplementedException();
+            int randomNumber = rand.Next(4);
+            gestureChoice = gestures[randomNumber];
+            Console.WriteLine(gestureChoice);
         }
     }
 }

@@ -29,7 +29,8 @@ namespace RPSLS
             }
             Console.WriteLine(" ");
             Console.WriteLine("Please select your gesture for this round: ");
-            string response = Console.ReadLine();
+            string userChoice = Console.ReadLine();
+            gestureChoice = userChoice.ToLower();
         }
 
 

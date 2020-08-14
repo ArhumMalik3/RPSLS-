@@ -12,13 +12,25 @@ namespace RPSLS
         //member variables (HAS A)
         public Player player1;
         public Player player2;
+        public Gestures Rock;
+        public Gestures Paper;
+        public Gestures Scissors;
+        public Gestures Lizard;
+        public Gestures Spock;
+
 
 
         //constructor
         public GamePlay()
         {
             player1 = new Human();
-            
+            Rock = new Gestures(false, true, false, true, false);
+            Paper = new Gestures(true, false, false, false, true);
+            Scissors = new Gestures(false, false, true, true, false);
+            Lizard = new Gestures(false, false, true, false, true);
+            Spock = new Gestures(true, true, false, false, false);
+
+
         }
 
         //member methods
@@ -38,6 +50,7 @@ namespace RPSLS
             player1.ChooseGesture();
             //display gesture to player 2 if its a human
             //player 2 chooses gesture
+            player2.ChooseGesture();
             //compare gestures
             //winner gets a point
             //display winner and scoreboard
@@ -67,6 +80,7 @@ namespace RPSLS
                 "Lizard eats Paper\n" +
                 "Paper disproves Spock\n" +
                 "Spock vaporizes Rock\n");
+            Console.WriteLine(" ");
             Console.ReadLine();
         }
         public void SelectGameMode()
@@ -86,10 +100,31 @@ namespace RPSLS
 
         }
 
-        //public void ChooseGesture()
-        //{
+        public void CompareGestures(string player1Choice, string player2Choice)
+        {
+            if (player1Choice == player2Choice)
+            {
+                Console.WriteLine("This round is a draw");
+            }
+            else if (player1Choice == "rock")
+            {
+                if (player2Choice == "paper")
+                {
+                    player2.score++;
+                    Console.WriteLine("Player 2 wins, paper covers rock"); 
+                }
+                else if(player2Choice == "scissors")
+                {
 
-        //}
+                }
+                
+            }
+            else if (player1Choice == "paper")
+            {
+
+            }
+
+        }
 
         
 
