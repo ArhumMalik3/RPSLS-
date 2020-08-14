@@ -12,11 +12,11 @@ namespace RPSLS
         //member variables (HAS A)
         public Player player1;
         public Player player2;
-        public Gestures Rock;
-        public Gestures Paper;
-        public Gestures Scissors;
-        public Gestures Lizard;
-        public Gestures Spock;
+        public Gesture Rock;
+        public Gesture Paper;
+        public Gesture Scissors;
+        public Gesture Lizard;
+        public Gesture Spock;
 
 
 
@@ -24,11 +24,11 @@ namespace RPSLS
         public GamePlay()
         {
             player1 = new Human();
-            Rock = new Gestures(false, true, false, true, false);
-            Paper = new Gestures(true, false, false, false, true);
-            Scissors = new Gestures(false, false, true, true, false);
-            Lizard = new Gestures(false, false, true, false, true);
-            Spock = new Gestures(true, true, false, false, false);
+            Rock = new Gesture(false, true, false, true, false);
+            Paper = new Gesture(true, false, false, false, true);
+            Scissors = new Gesture(false, false, true, true, false);
+            Lizard = new Gesture(false, false, true, false, true);
+            Spock = new Gesture(true, true, false, false, false);
 
 
         }
@@ -54,6 +54,7 @@ namespace RPSLS
             //compare gestures
             //winner gets a point
             //display winner and scoreboard
+            Scoreboard();
             // keep going until someone gets 2 points
 
             //end:
@@ -104,24 +105,126 @@ namespace RPSLS
         {
             if (player1Choice == player2Choice)
             {
-                Console.WriteLine("This round is a draw");
+                Console.WriteLine("This round is a draw!");
             }
             else if (player1Choice == "rock")
             {
                 if (player2Choice == "paper")
                 {
                     player2.score++;
-                    Console.WriteLine("Player 2 wins, paper covers rock"); 
+                    Console.WriteLine("Player 2 wins, paper covers rock!"); 
                 }
                 else if(player2Choice == "scissors")
                 {
-
+                    player1.score++;
+                    Console.WriteLine("Player 1 wins, rock crushes scissors!");
+                }
+                else if(player2Choice == "lizard")
+                {
+                    player1.score++;
+                    Console.WriteLine("Player 1 wins, rock crushes lizard!");
+                }
+                else if(player2Choice == "spock")
+                {
+                    player2.score++;
+                    Console.WriteLine("Player 2 wins, spock vaporizes rock!");
                 }
                 
             }
             else if (player1Choice == "paper")
             {
+                if (player2Choice == "rock")
+                {
+                    player1.score++;
+                    Console.WriteLine("Player 1 wins, paper covers rock!");
+                }
+                else if (player2Choice == "scissors")
+                {
+                    player2.score++;
+                    Console.WriteLine("Player 2 wins, scissors cuts paper!");
+                }
+                else if (player2Choice == "lizard")
+                {
+                    player2.score++;
+                    Console.WriteLine("Player 2 wins, lizard eats paper!");
+                }
+                else if (player2Choice == "spock")
+                {
+                    player1.score++;
+                    Console.WriteLine("Player 1 wins, paper disproves rock!");
+                }
 
+            }
+            else if (player1Choice == "scissors")
+            {
+                if (player2Choice == "rock")
+                {
+                    player2.score++;
+                    Console.WriteLine("Player 2 wins, rock crushes scissors!");
+                }
+                else if (player2Choice == "paper")
+                {
+                    player1.score++;
+                    Console.WriteLine("Player 1 wins, scissors cuts paper!");
+                }
+                else if (player2Choice == "lizard")
+                {
+                    player1.score++;
+                    Console.WriteLine("Player 1 wins, scissors decapitates lizard!");
+                }
+                else if (player2Choice == "spock")
+                {
+                    player2.score++;
+                    Console.WriteLine("Player 2 wins, spock smashes scissors!");
+                }
+
+            }
+            else if (player1Choice == "lizard")
+            {
+                if (player2Choice == "rock")
+                {
+                    player2.score++;
+                    Console.WriteLine("Player 2 wins, rock crushes lizard!");
+                }
+                else if (player2Choice == "paper")
+                {
+                    player1.score++;
+                    Console.WriteLine("Player 1 wins, lizard eats paper!");
+                }
+                else if (player2Choice == "scissors")
+                {
+                    player2.score++;
+                    Console.WriteLine("Player 2 wins, scissors decapitates lizard!");
+                }
+                else if (player2Choice == "spock")
+                {
+                    player1.score++;
+                    Console.WriteLine("Player 1 wins, lizard poisons spock!");
+                }
+
+            }
+            else if (player1Choice == "spock")
+            {
+                if (player2Choice == "rock")
+                {
+                    player1.score++;
+                    Console.WriteLine("Player 1 wins, spock vaporizes rock!");
+                }
+                else if (player2Choice == "paper")
+                {
+                    player2.score++;
+                    Console.WriteLine("Player 2 wins, paper disproves rock!");
+                }
+                else if (player2Choice == "scissors")
+                {
+                    player1.score++;
+                    Console.WriteLine("Player 1 wins, spock smashes scissors!");
+                }
+                else if (player2Choice == "lizard")
+                {
+                    player2.score++;
+                    Console.WriteLine("Player 2 wins, lizard poisons spock!");
+                }
             }
 
         }
@@ -130,7 +233,8 @@ namespace RPSLS
 
         public void Scoreboard()
         {
-
+            Console.WriteLine($"Player 1: {player1.score}\n" +
+                $"Player 2: {player2.score}");
         }
 
         public void DisplayWinner()

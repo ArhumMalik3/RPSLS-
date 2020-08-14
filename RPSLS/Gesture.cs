@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RPSLS
 {
-    class Gestures
+    class Gesture
     {
         //member variables
         public bool beatsRock;
@@ -17,7 +17,7 @@ namespace RPSLS
 
 
         // constructor
-        public Gestures(bool beatsRock, bool beatsScissors, bool beatsPaper, bool beatsLizard, bool beatsSpock)
+        public Gesture(bool beatsRock, bool beatsScissors, bool beatsPaper, bool beatsLizard, bool beatsSpock)
         {
             this.beatsRock = beatsRock;
             this.beatsScissors = beatsScissors;

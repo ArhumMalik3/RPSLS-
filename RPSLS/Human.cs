@@ -9,7 +9,7 @@ namespace RPSLS
     class Human : Player
     {
         //member variables (HAS A)
-
+        
 
         //constructor
         public Human()
@@ -29,10 +29,21 @@ namespace RPSLS
             }
             Console.WriteLine(" ");
             Console.WriteLine("Please select your gesture for this round: ");
+
             string userChoice = Console.ReadLine();
             gestureChoice = userChoice.ToLower();
+            //PlayerChoice(userChoice);
         }
 
+        //public void PlayerChoice(string playerChoice)
+        //{
+        //    switch(playerChoice)
+        //    {
+        //        case "rock":
+        //            gestureChoice = new Rock(); 
+        //            break;
+        //    }
+        //}
 
     }
 }
