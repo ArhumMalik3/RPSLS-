@@ -24,7 +24,7 @@ namespace RPSLS
         {
             int randomNumber = rand.Next(4);
             gestureChoice = gestures[randomNumber];
-            Console.WriteLine(gestureChoice);
+            
         }
     }
 }

@@ -36,31 +36,20 @@ namespace RPSLS
         //member methods
         public void RunGame()
         {
-            //intro:
-            //Welcome message
             WelcomeToGame();
-            //display rules of the game
             DisplayRulesOfGame();
-            //have player choose game mode
-            SelectGameMode();
+            SelectGameMode();  
+            
+            while (player1.score < 2 && player2.score < 2)
+            {
+                player1.ChooseGesture();
+                player2.ChooseGesture();
+                DisplayGestures();
+                CompareGestures(player1.gestureChoice, player2.gestureChoice);
+                Scoreboard();
+            }
 
-            //gameplay: (while loop)
-            //display gesture options to player 1
-            //player 1 chooses gesture
-            player1.ChooseGesture();
-            //display gesture to player 2 if its a human
-            //player 2 chooses gesture
-            player2.ChooseGesture();
-            //compare gestures
-            //winner gets a point
-            //display winner and scoreboard
-            Scoreboard();
-            // keep going until someone gets 2 points
-
-            //end:
-            //display winner of the game 
-
-
+            DisplayWinner();
         }
 
         public void WelcomeToGame()
@@ -70,7 +59,7 @@ namespace RPSLS
         }
         public void DisplayRulesOfGame()
         {
-            Console.WriteLine("The rules are simple. \n" +
+            Console.WriteLine("The rules are simple. Each person selects their gesture and the best 2 out of 3 wins the game!\n" +
                 "Rock crushes Paper \n" +
                 "Scissors cuts Paper \n" +
                 "Paper covers Rock\n" +
@@ -98,14 +87,24 @@ namespace RPSLS
             {
                 player2 = new Human();
             }
+            Console.WriteLine(" ");
+        }
 
+        public void DisplayGestures()
+        {
+            Console.WriteLine(" ");
+            Console.WriteLine(" ");
+            Console.WriteLine($"Player 1 chose {player1.gestureChoice}.\n" +
+                $"Player 2 chose {player2.gestureChoice}. ");
+            Console.WriteLine(" ");
+            Console.ReadLine();
         }
 
         public void CompareGestures(string player1Choice, string player2Choice)
         {
             if (player1Choice == player2Choice)
             {
-                Console.WriteLine("This round is a draw!");
+                Console.WriteLine($"This round is a draw! Both players selected {player1Choice}!");
             }
             else if (player1Choice == "rock")
             {
@@ -226,19 +225,36 @@ namespace RPSLS
                     Console.WriteLine("Player 2 wins, lizard poisons spock!");
                 }
             }
-
+            Console.WriteLine(" ");
+            Console.WriteLine(" ");
+            Console.WriteLine(" ");
+            Console.ReadLine();
         }
 
         
 
         public void Scoreboard()
         {
+            Console.WriteLine("The score is:");
+            Console.WriteLine(" ");
             Console.WriteLine($"Player 1: {player1.score}\n" +
                 $"Player 2: {player2.score}");
+            Console.WriteLine(" ");
+            Console.WriteLine(" ");
+            Console.WriteLine(" ");
+            Console.ReadLine();
         }
 
         public void DisplayWinner()
         {
+            if (player1.score == 2)
+            {
+                Console.WriteLine("Player 1 has won the game!");
+            }
+            else if (player2.score == 2)
+            {
+                Console.WriteLine("Player 2 has won the game!");
+            }
 
         }
     }
