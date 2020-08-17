@@ -36,18 +36,26 @@ namespace RPSLS
         //member methods
         public void RunGame()
         {
+            Intro();
+            GameSequence();
+            DisplayWinner();
+        }
+
+        public void Intro()
+        {
             WelcomeToGame();
             DisplayRulesOfGame();
-            SelectGameMode();  
-            
+            SelectGameMode();
+        }
+
+        public void GameSequence()
+        {
             while (player1.score < 2 && player2.score < 2)
             {
                 PlayersGestures();
                 CompareGestures(player1.gestureChoice, player2.gestureChoice);
                 Scoreboard();
             }
-
-            DisplayWinner();
         }
 
         public void WelcomeToGame()
@@ -90,6 +98,7 @@ namespace RPSLS
         public void PlayersGestures()
         {
             player1.ChooseGesture();
+            Console.Clear();
             
             player2.ChooseGesture();
             DisplayGestures();
