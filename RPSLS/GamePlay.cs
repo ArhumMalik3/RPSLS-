@@ -12,11 +12,7 @@ namespace RPSLS
         //member variables (HAS A)
         public Player player1;
         public Player player2;
-        public Gesture Rock;
-        public Gesture Paper;
-        public Gesture Scissors;
-        public Gesture Lizard;
-        public Gesture Spock;
+       
 
 
 
@@ -24,11 +20,7 @@ namespace RPSLS
         public GamePlay()
         {
             player1 = new Human();
-            Rock = new Gesture(false, true, false, true, false);
-            Paper = new Gesture(true, false, false, false, true);
-            Scissors = new Gesture(false, false, true, true, false);
-            Lizard = new Gesture(false, false, true, false, true);
-            Spock = new Gesture(true, true, false, false, false);
+            
 
 
         }
@@ -166,7 +158,7 @@ namespace RPSLS
                 else if (player2Choice == "spock")
                 {
                     player1.score++;
-                    Console.WriteLine("Player 1 wins, paper disproves rock!");
+                    Console.WriteLine("Player 1 wins, paper disproves spock!");
                 }
 
             }
@@ -228,7 +220,7 @@ namespace RPSLS
                 else if (player2Choice == "paper")
                 {
                     player2.score++;
-                    Console.WriteLine("Player 2 wins, paper disproves rock!");
+                    Console.WriteLine("Player 2 wins, paper disproves spock!");
                 }
                 else if (player2Choice == "scissors")
                 {
