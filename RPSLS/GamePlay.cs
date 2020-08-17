@@ -42,9 +42,7 @@ namespace RPSLS
             
             while (player1.score < 2 && player2.score < 2)
             {
-                player1.ChooseGesture();
-                player2.ChooseGesture();
-                DisplayGestures();
+                PlayersGestures();
                 CompareGestures(player1.gestureChoice, player2.gestureChoice);
                 Scoreboard();
             }
@@ -89,6 +87,13 @@ namespace RPSLS
             }
             Console.WriteLine(" ");
         }
+        public void PlayersGestures()
+        {
+            player1.ChooseGesture();
+            
+            player2.ChooseGesture();
+            DisplayGestures();
+        }
 
         public void DisplayGestures()
         {
@@ -99,6 +104,8 @@ namespace RPSLS
             Console.WriteLine(" ");
             Console.ReadLine();
         }
+
+        
 
         public void CompareGestures(string player1Choice, string player2Choice)
         {
@@ -225,6 +232,7 @@ namespace RPSLS
                     Console.WriteLine("Player 2 wins, lizard poisons spock!");
                 }
             }
+           
             Console.WriteLine(" ");
             Console.WriteLine(" ");
             Console.WriteLine(" ");

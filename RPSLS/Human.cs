@@ -9,6 +9,7 @@ namespace RPSLS
     class Human : Player
     {
         //member variables (HAS A)
+        string userChoice;
         
 
         //constructor
@@ -30,10 +31,26 @@ namespace RPSLS
             Console.WriteLine(" ");
             Console.WriteLine("Please select your gesture for this round: ");
 
-            string userChoice = Console.ReadLine();
+            userChoice = Console.ReadLine();
             gestureChoice = userChoice.ToLower();
+            CatchingInvalidInput();
             //PlayerChoice(userChoice);
         }
+
+        public void CatchingInvalidInput()
+        {
+
+            bool catchingInput = gestures.Contains(gestureChoice);
+            while (catchingInput == false)
+            {
+                Console.WriteLine("Unfortunately this is not one of the options, please choose again: ");
+                userChoice = Console.ReadLine();
+                gestureChoice = userChoice.ToLower();
+                catchingInput = gestures.Contains(gestureChoice);
+            }
+            
+        }
+
 
         //public void PlayerChoice(string playerChoice)
         //{
